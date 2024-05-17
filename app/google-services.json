@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44722998364",
+    "project_id": "carsaleproject-1a5cc",
+    "storage_bucket": "carsaleproject-1a5cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44722998364:android:36c28e501efbd1d75eea99",
+        "android_client_info": {
+          "package_name": "com.example.carsaleproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKqJB1D0w9b5ZfiXl_38cv26jJhjS3zSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

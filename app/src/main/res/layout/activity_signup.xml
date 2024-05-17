@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.SignupActivity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        android:src="@drawable/carsalelogo"
+        />
+    <EditText
+        android:id="@+id/txt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kullanıcı Adı"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_style_box"
+        android:layout_below="@+id/logo"/>
+    <EditText
+        android:id="@+id/txt_usermail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-Posta"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/txt_username"
+        android:background="@drawable/edit_style_box"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txt_userpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:background="@drawable/edit_style_box"
+        android:layout_below="@+id/txt_usermail"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:hint="Parola"/>
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_userpassword"
+        android:layout_margin="10dp"
+        android:text="Kayıt Ol"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:onClick="signupClicked"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/txt_haveaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zaten bir hesabın var mı ? Hemen giriş yap!"
+        android:layout_below="@+id/btn_signup"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giriş Yap"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/button_background"
+        android:layout_below="@+id/txt_haveaccount"
+        android:onClick="loginClicked"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/txt_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Araç Satış"
+        android:fontFamily="@font/alfa_slab_one"
+        android:layout_below="@+id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:textSize="50sp"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>

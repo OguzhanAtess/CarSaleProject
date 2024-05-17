@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.GiveAdvertiseActivity">
+
+    <ImageView
+        android:id="@+id/select_car_picture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/selectimage"
+        android:onClick="selectImage"/>
+    <EditText
+        android:id="@+id/advertise_title"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/select_car_picture"
+        android:hint="Başlık"/>
+    <EditText
+        android:id="@+id/car_owner_name"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/advertise_title"
+        android:hint="İlan Sahibi"/>
+    <EditText
+        android:id="@+id/car_brand"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/car_owner_name"
+        android:hint="Araç Markası"/>
+    <EditText
+        android:id="@+id/car_price"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/car_brand"
+        android:layout_centerHorizontal="true"
+        android:hint="Fiyat"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/car_year"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/car_price"
+        android:layout_centerHorizontal="true"
+        android:hint="Yıl"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/car_fuel"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/car_year"
+        android:layout_centerHorizontal="true"
+        android:hint="Yakıt"/>
+    <EditText
+        android:id="@+id/car_gear"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/car_fuel"
+        android:layout_centerHorizontal="true"
+        android:hint="Vites"/>
+    <EditText
+        android:id="@+id/car_km"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/car_gear"
+        android:layout_centerHorizontal="true"
+        android:hint="Kilometre"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/car_km"
+        android:layout_centerHorizontal="true"
+        android:hint="Telefon Numarası"
+        android:inputType="phone"/>
+    <Button
+        android:id="@+id/btn_give_advertise"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/phone_number"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background"
+        android:text="İlan Ver"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp" />
+
+</RelativeLayout>
