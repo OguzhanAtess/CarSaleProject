@@ -15,22 +15,23 @@
         android:src="@drawable/carsalelogo"
         />
     <EditText
-        android:id="@+id/txt_username"
+        android:id="@+id/txt_confirm_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Kullanıcı Adı"
+        android:hint="@string/password"
         android:padding="15dp"
         android:layout_margin="10dp"
         android:background="@drawable/edit_style_box"
-        android:layout_below="@+id/logo"/>
+        android:layout_below="@+id/txt_userpassword"
+        android:inputType="textPassword"/>
     <EditText
         android:id="@+id/txt_usermail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="E-Posta"
+        android:hint="@string/e_mail"
         android:padding="15dp"
         android:layout_margin="10dp"
-        android:layout_below="@+id/txt_username"
+        android:layout_below="@+id/logo"
         android:background="@drawable/edit_style_box"
         android:inputType="textEmailAddress"/>
     <EditText
@@ -42,14 +43,14 @@
         android:layout_below="@+id/txt_usermail"
         android:padding="15dp"
         android:layout_margin="10dp"
-        android:hint="Parola"/>
+        android:hint="@string/password"/>
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_userpassword"
+        android:layout_below="@+id/txt_confirm_pass"
         android:layout_margin="10dp"
-        android:text="Kayıt Ol"
+        android:text="@string/signup"
         android:background="@drawable/button_background"
         android:textColor="@color/white"
         android:onClick="signupClicked"
@@ -58,7 +59,7 @@
         android:id="@+id/txt_haveaccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zaten bir hesabın var mı ? Hemen giriş yap!"
+        android:text="@string/have_account1"
         android:layout_below="@+id/btn_signup"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
@@ -68,7 +69,7 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Giriş Yap"
+        android:text="@string/login"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:background="@drawable/button_background"
@@ -79,7 +80,7 @@
         android:id="@+id/txt_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Araç Satış"
+        android:text="@string/app_name"
         android:fontFamily="@font/alfa_slab_one"
         android:layout_below="@+id/btn_login"
         android:layout_centerHorizontal="true"

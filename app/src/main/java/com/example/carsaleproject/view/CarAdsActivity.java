@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +28,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -37,6 +40,7 @@ public class CarAdsActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     ArrayList<Advertise> advertiseArrayList;
     RecyclerView recyclerView;
+    ListView listView;
     AdvertiseAdapter advertiseAdapter;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,23 +54,30 @@ public class CarAdsActivity extends AppCompatActivity {
             return insets;
         });
 
-        recyclerView = findViewById(R.id.recyclerView);
-
         advertiseArrayList = new ArrayList<>();
+
+        //listView = findViewById(R.id.listView);
+
 
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         
         getData();
 
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         advertiseAdapter = new AdvertiseAdapter(advertiseArrayList,this);
         recyclerView.setAdapter(advertiseAdapter);
 
+        /*ArrayAdapter arrayAdapter = new ArrayAdapter(this,R.layout.recycler_row,advertiseArrayList);
+        listView.setAdapter(arrayAdapter);*/
+
+
+
     }
 
     private void getData() {
-        firebaseFirestore.collection("Ads").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection("Ads").orderBy("date", Query.Direction.DESCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(error != null){
@@ -89,8 +100,9 @@ public class CarAdsActivity extends AppCompatActivity {
                         String phone_number = (String) data.get("phone_number");
 
                         Advertise advertise = new Advertise(title,car_owner,car_brand,car_price,car_year,car_fuel,car_gear,car_km,phone_number);
+                        advertiseArrayList.add(advertise);
                         //Advertise advertise = new Advertise(title,car_brand,car_price);
-                        System.out.println(car_brand);
+                        //System.out.println(car_brand);
                     }
 
                    advertiseAdapter.notifyDataSetChanged();

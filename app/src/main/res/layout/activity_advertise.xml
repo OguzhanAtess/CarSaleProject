@@ -7,13 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".view.AdvertiseActivity">
 
+    <Button
+        android:id="@+id/btn_goback"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/goback"/>
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
     <ImageView
         android:id="@+id/car_picture"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/black"
+        android:layout_below="@+id/txt_title"
+        android:src="@drawable/car_recycler1"
         />
     <TextView
         android:id="@+id/txt_car_owner_name"
@@ -21,81 +38,85 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/car_picture"
         android:layout_centerHorizontal="true"
-        android:text="Araç Sahibi"
         android:textColor="@color/black"
         android:layout_marginTop="10dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/txt_car_brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_car_owner_name"
-        android:text="Araç markası"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/txt_car_price"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fiyat "
+        android:text="@string/car_price"
         android:layout_below="@+id/txt_car_brand"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="5dp"/>
-    <TextView
-        android:id="@+id/txt_car_listing_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="İlan Tarihi "
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
-        android:layout_below="@+id/txt_car_price"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"/>
     <TextView
         android:id="@+id/txt_car_year"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/car_year"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
-        android:layout_below="@+id/txt_car_listing_date"
-        android:text="Yıl"/>
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_car_price"
+        android:textSize="18sp"/>
     <TextView
         android:id="@+id/txt_car_fuel"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/txt_car_year"
-        android:text="Yakıt"/>
+        android:layout_centerHorizontal="true"
+        android:text="@string/car_fuel"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/txt_car_gear"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/txt_car_fuel"
-        android:text="Vites"/>
+        android:layout_centerHorizontal="true"
+        android:text="@string/car_gear"
+        android:textSize="18sp"/>
     <TextView
         android:id="@+id/txt_car_km"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/txt_car_gear"
-        android:text="Kilometre"/>
+        android:layout_centerHorizontal="true"
+        android:text="@string/kilometer"
+        android:textSize="18sp"/>
     <TextView
         android:id="@+id/txt_car_owner_phonenumber"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/txt_car_km"
-        android:text="Telefon Numarası"/>
+        android:layout_centerHorizontal="true"
+        android:text="@string/phone_number"
+        android:textSize="18sp"/>
+
 </RelativeLayout>

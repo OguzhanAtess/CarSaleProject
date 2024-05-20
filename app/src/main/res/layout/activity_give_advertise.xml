@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".view.GiveAdvertiseActivity">
 
+    <Button
+        android:id="@+id/btn_goback"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/goback"/>
+
     <ImageView
         android:id="@+id/select_car_picture"
         android:layout_width="200dp"
@@ -21,28 +29,28 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/select_car_picture"
-        android:hint="Başlık"/>
+        android:hint="@string/title"/>
     <EditText
         android:id="@+id/car_owner_name"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/advertise_title"
-        android:hint="İlan Sahibi"/>
+        android:hint="@string/advertiser"/>
     <EditText
         android:id="@+id/car_brand"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/car_owner_name"
-        android:hint="Araç Markası"/>
+        android:hint="@string/car_brand"/>
     <EditText
         android:id="@+id/car_price"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_below="@+id/car_brand"
         android:layout_centerHorizontal="true"
-        android:hint="Fiyat"
+        android:hint="@string/car_price"
         android:inputType="number"/>
     <EditText
         android:id="@+id/car_year"
@@ -50,7 +58,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/car_price"
         android:layout_centerHorizontal="true"
-        android:hint="Yıl"
+        android:hint="@string/car_year"
         android:inputType="number"/>
     <EditText
         android:id="@+id/car_fuel"
@@ -58,21 +66,21 @@
         android:layout_height="50dp"
         android:layout_below="@+id/car_year"
         android:layout_centerHorizontal="true"
-        android:hint="Yakıt"/>
+        android:hint="@string/car_fuel"/>
     <EditText
         android:id="@+id/car_gear"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_below="@+id/car_fuel"
         android:layout_centerHorizontal="true"
-        android:hint="Vites"/>
+        android:hint="@string/car_gear"/>
     <EditText
         android:id="@+id/car_km"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_below="@+id/car_gear"
         android:layout_centerHorizontal="true"
-        android:hint="Kilometre"
+        android:hint="@string/kilometer"
         android:inputType="number"/>
     <EditText
         android:id="@+id/phone_number"
@@ -80,7 +88,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/car_km"
         android:layout_centerHorizontal="true"
-        android:hint="Telefon Numarası"
+        android:hint="@string/phone_number"
         android:inputType="phone"/>
     <Button
         android:id="@+id/btn_give_advertise"
@@ -89,7 +97,7 @@
         android:layout_below="@+id/phone_number"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_background"
-        android:text="İlan Ver"
+        android:text="@string/give_advertise"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginTop="5dp" />

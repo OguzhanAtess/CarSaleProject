@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,8 +28,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.carsaleproject.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -36,6 +39,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
@@ -46,7 +50,7 @@ public class GiveAdvertiseActivity extends AppCompatActivity {
     private StorageReference storageReference;
     Uri imageData;
     ImageView imageView;
-    Button btn_giveAdvertise;
+    Button btn_giveAdvertise,btn_goback;
     EditText car_owner, car_brand,car_price,car_year,car_fuel,car_gear,car_km,phone_number,advertise_title;
     ActivityResultLauncher<Intent> activityResultLauncher;
     ActivityResultLauncher<String> permissionLauncher;
@@ -72,42 +76,100 @@ public class GiveAdvertiseActivity extends AppCompatActivity {
         car_km = findViewById(R.id.car_km);
         phone_number = findViewById(R.id.phone_number);
         advertise_title = findViewById(R.id.advertise_title);
+        btn_goback = findViewById(R.id.btn_goback);
 
 
         registerLauncher();
 
-        firebaseStorage = FirebaseStorage.getInstance("gs://carsaleproject-1a5cc.appspot.com");
+        firebaseStorage = FirebaseStorage.getInstance();
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        /*SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
-        Date now = new Date();
-        String fileName = formatter.format(now);*/
         storageReference = firebaseStorage.getReference();
+
 
         btn_giveAdvertise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /*if(imageData != null){
-                    UUID uuid = UUID.randomUUID();
-                    String imageName = "images/" + uuid + ".jpg";
-                    StorageReference reference = storageReference.child("images/" + UUID.randomUUID().toString());
-                    reference.putFile(imageData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    storageReference.child("gs://carsaleproject-1a5cc.appspot.com/images/image.png").putFile(imageData).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(GiveAdvertiseActivity.this, "İlan Verildi", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(GiveAdvertiseActivity.this, "İlan Verilemedi", Toast.LENGTH_SHORT).show();
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(GiveAdvertiseActivity.this, "Fotoğraf yüklendi.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(GiveAdvertiseActivity.this, "Fotoğraf yüklenemedi", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
-                } else {
-                    Toast.makeText(GiveAdvertiseActivity.this, "if kontrol", Toast.LENGTH_SHORT).show();
-                }    */
-                giveAdvertiseInfo();
+
+
+                }*/
+                if(!isEmptyFields()){
+                    giveAdvertiseInfo();
+                }
+
         }
         });
+
+        btn_goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GiveAdvertiseActivity.this,CarAdsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    private boolean isEmptyFields() {
+        String title = advertise_title.getText().toString();
+        String owner = car_owner.getText().toString();
+        String brand = car_brand.getText().toString();
+        String price = car_price.getText().toString();
+        String year = car_year.getText().toString();
+        String fuel = car_fuel.getText().toString();
+        String gear = car_gear.getText().toString();
+        String kilometer = car_km.getText().toString();
+        String phoneNumber = phone_number.getText().toString();
+        if(TextUtils.isEmpty(title)){
+            advertise_title.setError(getString(R.string.title_empty));
+            advertise_title.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(owner)){
+            car_owner.setError(getString(R.string.advertiser_empty));
+            car_owner.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(brand)){
+            car_brand.setError(getString(R.string.car_brand_empty));
+            car_brand.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(price)){
+            car_price.setError(getString(R.string.car_price_empty));
+            car_price.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(year)){
+            car_year.setError(getString(R.string.car_year_empty));
+            car_year.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(fuel)){
+            car_fuel.setError(getString(R.string.car_fuel_empty));
+            car_fuel.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(gear)){
+            car_gear.setError(getString(R.string.car_gear_empty));
+            car_gear.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(kilometer)){
+            car_km.setError(getString(R.string.kilometer_empty));
+            car_km.requestFocus();
+            return true;
+        } else if(TextUtils.isEmpty(phoneNumber)){
+            phone_number.setError(getString(R.string.phone_number_empty));
+            phone_number.requestFocus();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void giveAdvertiseInfo(){
@@ -137,8 +199,9 @@ public class GiveAdvertiseActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Intent intent = new Intent(GiveAdvertiseActivity.this,CarAdsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                finish();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

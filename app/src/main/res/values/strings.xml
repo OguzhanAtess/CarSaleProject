@@ -1,3 +1,35 @@
-<resources>
-    <string name="app_name">CarSaleProject</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Car Sale</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="password">Password</string>
+    <string name="login">Logın</string>
+    <string name="have_account" >If you don\'t have an account, sign up now.</string>
+    <string name="signup">SIGN UP</string>
+    <string name="username">Username</string>
+    <string name="have_account1">Do you already have an account? Log in now.</string>
+    <string name="title" >Title</string>
+    <string name="advertiser" >Advertiser</string>
+    <string name="car_brand" >Car Brand</string>
+    <string name="car_price" >Price</string>
+    <string name="car_year" >Year</string>
+    <string name="car_fuel" >Fuel</string>
+    <string name="car_gear" >Gear</string>
+    <string name="kilometer" >Kilometer</string>
+    <string name="phone_number" >Phone Number</string>
+    <string name="give_advertise">Gıve Advertıse</string>
+    <string name="logout">Log out</string>
+    <string name="email_empty">E-Mail field cannot be empty!\n</string>
+    <string name="password_empty">Password field cannot be empty!</string>
+    <string name="email_password_false">E-Mail or password is incorrect!</string>
+    <string name="pass_not_confirm">Password could not be verified! Please make sure you enter the same password!</string>
+    <string name="signup_fail">Registration Failed!</string>
+    <string name="title_empty">Title cannot be empty!</string>
+    <string name="advertiser_empty">Advertiser cannot be empty!</string>
+    <string name="car_brand_empty">Car brand cannot be empty!</string>
+    <string name="car_price_empty">Car price cannot be empty!</string>
+    <string name="car_year_empty">Car year cannot be empty!</string>
+    <string name="car_fuel_empty">Car fuel cannot be empty!</string>
+    <string name="car_gear_empty">Car gear cannot be empty!</string>
+    <string name="kilometer_empty">Car kilometer cannot be empty!</string>
+    <string name="phone_number_empty">Phone number cannot be empty!</string>
 </resources>

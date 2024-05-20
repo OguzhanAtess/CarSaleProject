@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/give_add" android:title="İlan Ver"/>
-    <item android:id="@+id/signout" android:title="Çıkış Yap"/>
+<item android:id="@+id/give_add" android:title="@string/give_advertise"/>
+    <item android:id="@+id/signout" android:title="@string/logout"/>
 </menu>

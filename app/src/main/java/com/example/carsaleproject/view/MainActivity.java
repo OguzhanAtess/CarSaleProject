@@ -1,11 +1,20 @@
 package com.example.carsaleproject.view;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -22,10 +31,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     EditText usermail,userpassword;
     Button btn_login, btn_signup;
     FirebaseAuth auth;
+    TextView tr_lang,eng_lang;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         userpassword = findViewById(R.id.txt_userpassword);
         btn_login = findViewById(R.id.btn_login);
         btn_signup = findViewById(R.id.btn_signup);
+        tr_lang = findViewById(R.id.tr_lang);
+        eng_lang = findViewById(R.id.eng_lang);
+
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
         if(user != null){
@@ -47,16 +63,17 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+        
     }
     public void loginClicked(View view){
         String mail = usermail.getText().toString();
         String password = userpassword.getText().toString();
 
         if(TextUtils.isEmpty(mail)){
-            usermail.setError("E-Posta Kısmı Boş Olamaz!");
+            usermail.setError(getString(R.string.email_empty));
             usermail.requestFocus();
         } else if(TextUtils.isEmpty(password)){
-            userpassword.setError("Parola Kısmı Boş Olamaz!");
+            userpassword.setError(getString(R.string.password_empty));
             userpassword.requestFocus();
         } else {
             auth.signInWithEmailAndPassword(mail,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -69,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(MainActivity.this, "E-Posta veya Parola Yanlış!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,(R.string.email_password_false), Toast.LENGTH_LONG).show();
                 }
             });
         }
